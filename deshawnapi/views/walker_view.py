@@ -19,10 +19,10 @@ class WalkerView(ViewSet):
 
     def list(self, request):
         # Step 1: Get all walker data from the database
-        cities = Walker.objects.all()
+        walkers = Walker.objects.all()
 
         # Step 2: Convert the data to JSON format
-        serialized = WalkerSerializer(cities, many=True)
+        serialized = WalkerSerializer(walkers, many=True)
 
         # Step 3: Respond to the client with the JSON data and 200 status code
         return Response(serialized.data, status=status.HTTP_200_OK)
